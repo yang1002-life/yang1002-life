@@ -1,7 +1,7 @@
 <h1 align="center">Hi, I'm yang1002-life</h1>
 
 <p align="center">
-  Researching UAV-based forest fire monitoring, RGB-T fireline perception, and data assimilation for wildfire spread prediction.
+  Computer vision and AI researcher interested in visual perception, remote sensing, and intelligent environmental monitoring.
 </p>
 
 <p align="center">
@@ -13,17 +13,17 @@
 
 ## About me
 
-- I focus on computer vision and AI methods for forest fire monitoring and early warning.
-- My current research centers on using limited UAV observations to improve wildfire spread prediction through data assimilation.
-- I am interested in practical perception systems that combine detection, tracking, segmentation, mapping, and prediction.
-- I prefer building reproducible experiments and engineering workflows that connect research ideas with runnable code.
+- I work on computer vision, deep learning, and image understanding.
+- My research interests are related to intelligent perception and prediction in complex real-world scenarios.
+- I care about building reliable experiments, clean code, and practical AI workflows.
+- I enjoy connecting academic research with reproducible engineering practice.
 
 ## Research interests
 
-- UAV RGB-T fireline detection and tracking
-- Fireline segmentation, localization, and mapping
-- Wildfire spread prediction with data assimilation
-- Multi-source remote sensing data fusion
+- Computer vision and deep learning
+- Remote sensing image understanding
+- Multi-source data fusion
+- Intelligent monitoring and prediction
 
 ## Tech stack
 
@@ -38,17 +38,12 @@
 
 ## Current direction
 
-My thesis work is organized around UAV forest fire monitoring and prediction:
-
-- tracking dynamic firelines under smoke, occlusion, and fast appearance changes;
-- extracting and locating fireline pixels from RGB-T UAV imagery;
-- converting partial UAV observations into map-level fireline information;
-- improving wildfire spread prediction with asynchronous and local observation data.
+I am currently exploring AI methods for visual understanding and environmental perception, with an emphasis on robust models, multi-modal information, and practical deployment-oriented workflows.
 
 ## Selected repositories
 
 - `RGB_NIR` - experiments related to RGB and near-infrared image understanding.
-- `small-fire_datasets` - small fire detection dataset organization and experiments.
+- `small-fire_datasets` - dataset organization and visual detection experiments.
 - `awesome-image-registration` - notes and resources around image registration.
 
 ## GitHub stats
@@ -61,5 +56,5 @@ My thesis work is organized around UAV forest fire monitoring and prediction:
 ---
 
 <p align="center">
-  Turning UAV observations into reliable fire monitoring and prediction systems.
+  Building practical AI systems from research ideas and reproducible experiments.
 </p>
