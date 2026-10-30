@@ -1,0 +1,71 @@
+name: Update GitHub stats
+
+on:
+  schedule:
+    # 08:17 Asia/Shanghai (UTC+8).
+    - cron: '17 0 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: update-github-stats
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+
+    steps:
+      - name: Check out main
+        uses: actions/checkout@v6
+        with:
+          ref: main
+
+      - name: Generate stats card
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: stats
+          options: username=${{ github.repository_owner }}&show_icons=true&theme=default&hide_border=true
+          path: profile/stats.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fail_on_error: true
+
+      - name: Generate top languages card
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: top-langs
+          options: username=${{ github.repository_owner }}&layout=compact&hide_border=true
+          path: profile/top-langs.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fail_on_error: true
+
+      - name: Validate generated cards
+        shell: python
+        run: |
+          from pathlib import Path
+          import xml.etree.ElementTree as ET
+
+          for filename in ("profile/stats.svg", "profile/top-langs.svg"):
+              root = ET.parse(filename).getroot()
+              if root.tag != "{http://www.w3.org/2000/svg}svg":
+                  raise ValueError(f"Invalid SVG: {filename}")
+              text = " ".join(root.itertext())
+              if "Something went wrong" in text:
+                  raise ValueError(f"Error card: {filename}")
+              print(f"Validated {filename}")
+
+      - name: Commit updated cards
+        shell: bash
+        run: |
+          set -euo pipefail
+          git add -- profile/stats.svg profile/top-langs.svg
+          if git diff --cached --quiet; then
+            echo "Stats cards are unchanged."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Update GitHub stats cards"
+          git push origin HEAD:main
