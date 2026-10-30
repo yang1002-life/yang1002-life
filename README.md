@@ -49,8 +49,8 @@ I am currently exploring AI methods for visual understanding and environmental p
 ## GitHub stats
 
 <p align="center">
-  <img height="160" src="https://github-readme-stats.vercel.app/api?username=yang1002-life&show_icons=true&theme=default&hide_border=true" />
-  <img height="160" src="https://github-readme-stats.vercel.app/api/top-langs/?username=yang1002-life&layout=compact&hide_border=true" />
+  <img height="160" src="./profile/stats.svg" alt="yang1002-life's GitHub stats" />
+  <img height="160" src="./profile/top-langs.svg" alt="yang1002-life's most used languages" />
 </p>
 
 ---
